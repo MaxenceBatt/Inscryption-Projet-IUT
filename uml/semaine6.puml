@@ -1,0 +1,296 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+skinparam classFontStyle Bold
+skinparam defaultFontSize 14
+skinparam style strictuml
+hide empty members
+left to right direction
+
+package inscryption {
+
+    package cards {
+
+        abstract class Card {
+            - m_name : String
+            - m_hp : Integer
+            + <<create>> Card(name : String, hp : Integer)
+            + getName() : String
+            + getAttack() : Integer
+            + getHp() : Integer
+            + takeDamage(damage : Integer)
+            + isDead() : Boolean
+            + {abstract} <i>performAttack(targetCard : Card) : Integer</i>
+            + {abstract} <i>canBeSacrificed() : Boolean</i>
+            + {abstract} <i>copy() : Card</i>
+            + {abstract} <i>activateTurnStartPowers(board : Board)</i>
+            + {abstract} <i>activateSacrificePowers(board : Board) : Boolean</i>
+            + {abstract} <i>getTotalAttackReduction() : Integer</i>
+            + {abstract} <i>activatePostAttackPowers(board : Board)</i>
+            + {abstract} <i>takeLethalDamage()</i>
+            + {abstract} <i>activateDamageDealtPowers(targetCard : Card)</i>
+            + {abstract} <i>activateOnAttackedPowers(attacker : Card)</i>
+        }
+
+        class Animal {
+            - m_attack : Integer
+            - m_bloodCost : Integer
+            - m_boneCost : Integer
+            + <<create>> Animal(name : String, hp : Integer, attack : Integer, bloodCost : Integer, boneCost : Integer)
+            + <<create>> Animal(original : Animal)
+            + getAttack() : Integer
+            + getBloodCost() : Integer
+            + getBoneCost() : Integer
+            + performAttack(targetCard : Card) : Integer
+            + canBeSacrificed() : Boolean
+            + addPower(power : Power)
+            + getPowers() : List<Power>
+            + copy() : Animal
+            + activateTurnStartPowers(board : Board)
+            + activateSacrificePowers(board : Board) : Boolean
+            + getTotalAttackReduction() : Integer
+            + activatePostAttackPowers(board : Board)
+            + takeLethalDamage()
+            + activateDamageDealtPowers(targetCard : Card)
+            + activateOnAttackedPowers(attacker : Card)
+        }
+
+        class FlyingAnimals {
+            + <<create>> FlyingAnimals(name : String, hp : Integer, attack : Integer, bloodCost : Integer, boneCost : Integer)
+            + <<create>> FlyingAnimals(original : FlyingAnimals)
+            + performAttack(targetCard : Card) : Integer
+            + copy() : FlyingAnimals
+        }
+
+        class Obstacle {
+            + <<create>> Obstacle(name : String, hp : Integer)
+            + <<create>> Obstacle(original : Obstacle)
+            + copy() : Obstacle
+            + performAttack(targetCard : Card) : Integer
+            + canBeSacrificed() : Boolean
+            + activateTurnStartPowers(board : Board)
+            + activateSacrificePowers(board : Board) : Boolean
+            + getTotalAttackReduction() : Integer
+            + activatePostAttackPowers(board : Board)
+            + takeLethalDamage()
+            + activateDamageDealtPowers(targetCard : Card)
+            + activateOnAttackedPowers(attacker : Card)
+        }
+
+        class CardFactory {
+            + {static} createChat() : Animal
+            + {static} createGrizzly() : Animal
+            + {static} createCoyote() : Animal
+            + {static} createEcureuil() : Animal
+            + {static} createHermine() : Animal
+            + {static} createLouveteau() : Animal
+            + {static} createLoup() : Animal
+            + {static} createPunaise() : Animal
+            + {static} createElan() : Animal
+            + {static} createVipere() : Animal
+            + {static} createPorcEpic() : Animal
+            + {static} createMoineau() : FlyingAnimals
+            + {static} createCorbeau() : FlyingAnimals
+            + {static} createRocher() : Obstacle
+            + {static} createSapin() : Obstacle
+            + {static} createRandomAnimal() : Animal
+        }
+
+        package powers {
+
+            abstract class Power {
+                + onTurnStart(owner : Animal, board : Board)
+                + onSacrifice(owner : Animal, board : Board) : Boolean
+                + getAttackReduction() : Integer
+                + onPostAttack(owner : Animal, board : Board, position : Integer)
+                + onDamageDealt(targetCard : Card)
+                + onAttacked(attacker : Card)
+                + {abstract} <i>copy() : Power</i>
+            }
+
+            class Growth {
+                - m_turnsAlive : Integer
+                + <<create>> Growth()
+                + onTurnStart(owner : Animal, board : Board)
+                + copy() : Growth
+            }
+
+            class ManyLives {
+                + <<create>> ManyLives()
+                + onSacrifice(owner : Animal, board : Board) : Boolean
+                + copy() : ManyLives
+            }
+
+            class Stinky {
+                + <<create>> Stinky()
+                + getAttackReduction() : Integer
+                + copy() : Stinky
+            }
+
+            class Sprinter {
+                + <<create>> Sprinter()
+                + onPostAttack(owner : Animal, board : Board, position : Integer)
+                + copy() : Sprinter
+            }
+
+            class DeadlyContact {
+                + onDamageDealt(targetCard : Card)
+                + copy() : DeadlyContact
+            }
+
+            class SharpQuills {
+                + <<create>> SharpQuills()
+                + onAttacked(attacker : Card)
+                + copy() : SharpQuills
+            }
+        }
+    }
+
+    package game {
+
+        class Board {
+            - m_playerRow : Card[4]
+            - m_opponentRow : Card[4]
+            - m_opponentIntentions : Card[4]
+            + <<create>> Board()
+            + placePlayerCard(card : Card, position : Integer) : Boolean
+            + placeOpponentCard(card : Card, position : Integer) : Boolean
+            + placeOpponentIntention(card : Card, position : Integer) : Boolean
+            + getPlayerCard(position : Integer) : Card
+            + getOpponentCard(position : Integer) : Card
+            + getOpponentIntentionsCard(position : Integer) : Card
+            + clearPlayerPosition(position : Integer)
+            + clearOpponentPosition(position : Integer)
+            + clearIntentionPosition(position : Integer)
+            + replaceCard(oldCard : Card, newCard : Card)
+            + isTargetPositionEmpty(owner : Card, targetPosition : Integer) : Boolean
+            + moveCard(card : Card, targetPosition : Integer)
+            + getCardPosition(card : Card) : Integer
+        }
+
+        class Player {
+            - m_bones : Integer
+            + <<create>> Player()
+            + initDeck()
+            + drawCard() : Boolean
+            + playCard(card : Card)
+            + getHand() : List<Card>
+            + getDeck() : List<Card>
+            + getBones() : Integer
+            + addBone()
+            + addCardToDeck(card : Card)
+            + removeCardFromDeck(card : Card)
+            + removeCardFromHand(card : Card)
+            + getLastCard() : Card
+            + getCardFromHand(index : Integer) : Card
+            + canAfford(animalCard : Animal, board : Board) : Boolean
+            + prepareTurn()
+            + initHand()
+            + getDrawPileSize() : Integer
+        }
+
+        class Opponent {
+            + <<create>> Opponent()
+            + prepareNextTurn(board : Board)
+            + playTurn(board : Board)
+            + canAfford(animalCard : Animal, board : Board) : Boolean
+        }
+
+        enum PlayerAction {
+            FIN
+            PIOCHER
+            PLACER
+        }
+
+        class Game {
+            - m_scoreDifference : Integer
+            + <<create>> Game()
+            + startGame()
+            + playPlayerTurn()
+            + resolvePlayerAttack()
+            + resolveOpponentAttack()
+            + handleSacrifice(bloodCost : Integer)
+            + initObstacle(pourcentageChance : Integer)
+            + checkGameOver() : Boolean
+            + chooseNewCard()
+            + useSacrificeStone()
+            + getScoreDifference() : Integer
+            + getGameBoard() : Board
+            + getPlayer() : Player
+            - activatePlayerPowers()
+            - activateOpponentPowers()
+        }
+    }
+
+    package ui {
+
+        class ConsoleView {
+            - m_scanner : Scanner
+            + <<create>> ConsoleView()
+            + displayMessage(message : String)
+            + askForAction() : String
+            + displayBoard(board : Board, scoreDifference : Integer, drawPileSize : Integer)
+            + displayHand(player : Player)
+            + displayAnimal(animal : Animal, numeroAffichage : Integer)
+            + displayDeck(player : Player)
+            + askForSacrificePosition(bloodCost : Integer, currentSacrifices : Integer) : Integer
+            + askForChoice() : Integer
+            + askForDeckIndex(maxChoice : Integer) : Integer
+            + displayInvalidSacrificeError()
+            + displayEndOfRound(manche : Integer)
+            + displayEndOfGame(victory : Boolean)
+            - renderCard(card : Card, position : String) : String[*]
+            - renderRow(cards : Card[*], positions : String[*]) : String[*]
+            - printRow(row : String[*])
+        }
+    }
+}
+
+class Main {
+    + {static} main(args : String[*])
+}
+
+'Héritage
+Card <|-- Animal
+Card <|-- Obstacle
+Animal <|-- FlyingAnimals
+Power <|-- Growth
+Power <|-- ManyLives
+Power <|-- Stinky
+Power <|-- Sprinter
+Power <|-- DeadlyContact
+Power <|-- SharpQuills
+
+'Héritage Player -> Opponent
+Player <|-- Opponent
+
+'Animal possède des Powers
+Animal *--> "0..*\n -m_powers" Power : possède >
+
+'Board contient des cartes
+Board o--> "0..4\n -m_playerRow\n -m_opponentRow\n -m_opponentIntentions" Card : contient >
+
+'Player contient des cartes
+Player *--> "0..*\n -m_hand / -m_deck\n -m_drawPile" Card : contient >
+
+Game *--> "1\n -m_player" Player : possède >
+Game *--> "1\n -m_opponent" Opponent : possède >
+Game *--> "1\n -m_gameBoard" Board : possède >
+Game *--> "1\n -m_view" ConsoleView : utilise >
+
+'Game utilise PlayerAction'
+Game ..> PlayerAction : <<uses>>
+
+'CardFactory instancie les cartes
+CardFactory ..> Animal : <<instantiate>>
+CardFactory ..> FlyingAnimals : <<instantiate>>
+CardFactory ..> Obstacle : <<instantiate>>
+
+'Growth et Sprinter appellent Board
+Growth ..> CardFactory : <<call>>
+Sprinter ..> Board : <<call>>
+
+' Main instancie Game
+Main ..> Game : <<instantiate>>
+
+@enduml
