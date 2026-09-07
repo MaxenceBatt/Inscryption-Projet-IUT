@@ -128,7 +128,24 @@ Les animaux suivants sont des animaux volants, qui attaquent au-dessus des carte
 | 🪨 Obstacles | 2 |
 | **Total** | **15** |
 
+---
 
+## 🚀 Installation et lancement
+
+### Prérequis
+
+- **Windows ou Linux**
+- **IntelliJ 2025.3.2** (ou version compatible)
+
+### Étapes
+
+1. **Cloner le dépôt**
+   ```bash
+   git clone https://github.com/<votre-pseudo>/<nom-du-repo>.git
+   ```
+2. **Ouvrir le répertoire** dans IntelliJ
+
+3. Puis simplement éxectuer (Flèche verte en haut à droite)
 
 
 
