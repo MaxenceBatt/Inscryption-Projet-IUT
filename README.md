@@ -82,3 +82,56 @@ Inscryption-Project-IUT/
 ```
 
 ---
+
+# 🃏 Cartes du jeu
+
+## 🐾 Cartes Animaux
+
+| Animal | ❤️ PV | ⚔️ Attaque | 🩸 Coût sang | 🦴 Coût os | ✨ Pouvoir |
+|---|---:|---:|---:|---:|---|
+| 🐱 Chat | 1 | 0 | 1 | 0 | `ManyLives` |
+| 🐻 Grizzly | 6 | 4 | 3 | 0 | — |
+| 🐺 Coyote | 1 | 2 | 0 | 4 | — |
+| 🐿️ Ecureuil | 1 | 0 | 0 | 0 | — |
+| 🦦 Hermine | 3 | 1 | 1 | 0 | — |
+| 🐺 Louveteau | 1 | 1 | 1 | 0 | `Growth` |
+| 🐺 Loup | 2 | 3 | 2 | 0 | — |
+| 🪲 Punaise | 2 | 1 | 0 | 2 | `Stinky` |
+| 🫎 Elan | 4 | 2 | 2 | 0 | `Sprinter` |
+| 🐍 Vipère | 1 | 1 | 2 | 0 | `DeadlyContact` |
+| 🦔 Porc-Épic | 2 | 1 | 1 | 0 | `SharpQuills` |
+| 🐦 Moineau | 2 | 1 | 1 | 0 | — |
+| 🐦‍⬛ Corbeau | 3 | 2 | 2 | 0 | — |
+
+## 🪽 Animaux volants
+
+Les animaux suivants sont des animaux volants, qui attaquent au-dessus des cartes placés en face
+
+| Animal | ❤️ PV | ⚔️ Attaque | 🩸 Coût sang | 🦴 Coût os | Type |
+|---|---:|---:|---:|---:|---|
+| 🐦 Moineau | 2 | 1 | 1 | 0 | Volant |
+| 🐦‍⬛ Corbeau | 3 | 2 | 2 | 0 | Volant |
+
+## 🪨 Cartes Obstacles
+
+| Obstacle | ❤️ PV |
+|---|---:|
+| 🪨 Rocher | 5 |
+| 🌲 Sapin | 3 |
+
+## 📊 Résumé des cartes
+
+| Catégorie | Nombre |
+|---|---:|
+| 🐾 Animaux terrestres | 11 |
+| 🪽 Animaux volants | 2 |
+| 🪨 Obstacles | 2 |
+| **Total** | **15** |
+
+
+
+
+
+
+
+
