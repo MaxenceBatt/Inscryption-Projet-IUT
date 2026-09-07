@@ -35,4 +35,48 @@ Ce projet est une tentative de réplique du jeu **Inscryption**, en cinq semaine
 | **4 — Choix d'une nouvelle carte** | Après chaque partie le joueur à le choix entre deux cartes à ajouter à son deck |
 | **5 — Pierre de sacrifice** | Après chaque partie le joueur peut transmettre les pouvoirs d'une carte à une autre |
 
+---
 
+```
+Inscryption-Project-IUT/
+│
+├── .idea/
+│   └── libraries/
+│
+├── assets/
+│
+├── deps/
+│
+├── out/
+│   ├── production/
+│   │   └── project-inscryption/
+│   │       └── inscription/
+│   │           ├── cards/
+│   │           │   └── powers/
+│   │           ├── game/
+│   │           └── ui/
+│   │
+│   └── test/
+│       └── project-inscryption/
+│           └── inscription/
+│               ├── cards/
+│               │   └── powers/
+│               └── game/
+│
+├── src/
+│   └── inscription/
+│       ├── cards/
+│       │   └── powers/
+│       ├── game/
+│       └── ui/
+│
+├── tests/
+│   └── inscription/
+│       ├── cards/
+│       │   └── powers/
+│       └── game/
+│
+└── uml/
+```
+
+---
