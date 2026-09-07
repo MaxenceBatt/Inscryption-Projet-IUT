@@ -147,8 +147,9 @@ Les animaux suivants sont des animaux volants, qui attaquent au-dessus des carte
 
 3. Puis simplement éxectuer (Flèche verte en haut à droite)
 
+---
 
+## 👥 Auteurs
 
-
-
+Projet réalisé par **Maxence** et son binome ([@MarwanAitTamgount](https://github.com/marwaaan212)) dans le cadre de la **SAE21 — BUT Informatique 1ère année**, IUT Robert Schuman, Université de Strasbourg — Session 2026.
 
