@@ -8,7 +8,7 @@ Développement du jeu Inscryption en java dans le cadre de la SAE21 du BUT Infor
 
 ## Description
 
-Ce projet est une tentative de réplique du jeu **Inscryption**, en cinq semaines et en équipe de deux. Le joueur peut jouer Trois parties d'**Inscryption** avec entre chaque partie la méchanique de la pierre de sacrifice pour transmettre les pouvoirs.
+Ce projet est une tentative de réplique du jeu **Inscryption**, en cinq semaines et en équipe de deux. Le joueur peut jouer Trois parties d'**Inscryption** avec entre chaque partie l'ajout d'une carte dansledeck et la méchanique de la pierre de sacrifice pour transmettre les pouvoirs.
 
 ---
 
