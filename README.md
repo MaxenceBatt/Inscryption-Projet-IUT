@@ -12,4 +12,17 @@ Ce projet est une tentative de réplique du jeu **Inscryption**, en cinq semaine
 
 ---
 
+## 📸 Aperçu
+
+### Plateau de jeu
+![Plateau de jeu](assets/PlateauDeJeuInscryption.png)
+
+### Main et actions
+![Main et actions](assets/main&actionInscryption.png)
+
+### Pierre de sacrifice et nouvelle carte
+![Sacrifice et nouvelle carte](assets/NouvelleCarte&PierreDeSacrifice.png)
+
+---
+
 
