@@ -37,6 +37,8 @@ Ce projet est une tentative de réplique du jeu **Inscryption**, en cinq semaine
 
 ---
 
+## 🏗️ Architecture du projet
+
 ```
 Inscryption-Project-IUT/
 │
