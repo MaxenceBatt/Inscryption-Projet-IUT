@@ -145,7 +145,7 @@ Les animaux suivants sont des animaux volants, qui attaquent au-dessus des carte
    ```
 2. **Ouvrir le répertoire** dans IntelliJ
 
-3. Puis simplement éxectuer (Flèche verte en haut à droite)
+3. Puis simplement exécuter (Flèche verte en haut à droite)
 
 ---
 
