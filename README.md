@@ -27,8 +27,8 @@ Ce projet est une tentative de réplique du jeu **Inscryption**, en cinq semaine
 
 ## ✨ Fonctionnalités
 
-| Volet | Description | Mode |
-|-------|-------------|------|
+| Volet | Description |
+|-------|-------------|
 | **1 — Plateau de jeu** | Plateau de jeu avec des cartes colorés en fonction du type de la carte et une pioche qui donne le nombre de cartes restantes |
 | **2 — Affichage du deck** | Deck affiché en dessous du plutôt avec pour chaque carte les PV, les dégâts, Le coût en sang et en os et les pouvoirs |
 | **3 — Rappel des actions disponibles** | Un rappel des  actions disponibles est affiché après chaque action |
