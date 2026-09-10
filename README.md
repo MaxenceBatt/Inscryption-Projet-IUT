@@ -1,5 +1,6 @@
 # Inscryption-Projet-IUT
 
+
 # 🌲 Projet Inscryption - SAE21
 
 Développement du jeu Inscryption en java dans le cadre de la SAE21 du BUT Informatique (IUT Robert Schuman, Université de Strasbourg).
